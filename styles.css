@@ -9,6 +9,8 @@
   --coral: #E85D4A;
   --line: #E7E0D2;
   --white: #FFFFFF;
+  --vault: #0F2B1E;
+  --seal: #C9A24B;
 
   --text-hero: clamp(2.6rem, 1.2rem + 5.2vw, 5.2rem);
   --text-h2: clamp(1.7rem, 1.1rem + 2.3vw, 2.9rem);
@@ -55,6 +57,7 @@ a { color: inherit; text-decoration: none; }
 .btn-ghost:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
 .btn-sm { padding: .6rem 1.1rem; font-size: .95rem; }
 .btn-full { width: 100%; margin-top: .35rem; }
+.btn:active { transform: translateY(0) scale(.97); }
 
 /* Header */
 header {
@@ -102,6 +105,7 @@ h1 { font-size: var(--text-hero); font-weight: 800; margin-bottom: 1.2rem; }
 
 /* Proof card */
 .proof {
+  position: relative;
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
   box-shadow: var(--shadow); overflow: hidden;
   transform: rotate(1.4deg);
@@ -115,8 +119,17 @@ h1 { font-size: var(--text-hero); font-weight: 800; margin-bottom: 1.2rem; }
 .proof-label { font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .verdict { background: var(--green); color: #fff; font-weight: 700; font-size: .8rem; padding: .35rem .75rem; border-radius: 999px; }
 .proof-body { padding: 1.3rem; }
-.proof-addr { font-weight: 600; }
-.proof-meta { font-size: .85rem; color: var(--muted); margin: .2rem 0 1rem; }
+.proof-addr { font-weight: 600; padding-right: 4.4rem; }
+.proof-meta { font-size: .85rem; color: var(--muted); margin: .2rem 0 1rem; padding-right: 4.4rem; }
+.seal {
+  position: absolute; top: 3.5rem; right: .9rem;
+  width: 58px; height: 58px;
+  transform: rotate(-12deg);
+}
+.seal circle { fill: none; stroke: var(--seal); stroke-width: 1.6; }
+.seal .dash { stroke-width: 1; stroke-dasharray: 2 2.6; opacity: .8; }
+.seal text { font-size: 5px; font-weight: 700; letter-spacing: .16em; fill: var(--seal); }
+.seal .seal-mark path { fill: none; stroke: var(--seal); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .checklist { list-style: none; }
 .checklist li {
   display: flex; gap: .6rem; align-items: flex-start;
@@ -135,7 +148,7 @@ h1 { font-size: var(--text-hero); font-weight: 800; margin-bottom: 1.2rem; }
 }
 
 /* Stakes */
-.stakes { background: var(--ink); color: var(--paper); padding: var(--space-section) 0; }
+.stakes { background: var(--vault); color: var(--paper); padding: var(--space-section) 0; }
 .stakes-grid {
   display: grid; grid-template-columns: auto 1fr;
   gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center;
@@ -221,6 +234,11 @@ h1 { font-size: var(--text-hero); font-weight: 800; margin-bottom: 1.2rem; }
   outline: none; border-color: var(--green);
 }
 .form-note { text-align: center; font-size: .88rem; color: var(--muted); margin-top: .9rem; }
+.trust-row { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-top: 1rem; }
+.trust-badge {
+  font-size: .82rem; font-weight: 600; color: var(--green-ink);
+  background: var(--green-soft); padding: .4rem .85rem; border-radius: 999px;
+}
 .form-done { text-align: center; }
 .done-icon {
   display: grid; place-items: center;
@@ -255,6 +273,7 @@ footer { padding: 3rem 0 2.5rem; border-top: 1px solid var(--line); }
 .foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
 .foot .brand { font-size: 1.15rem; }
 .tag { color: var(--muted); }
+.foot-secure { font-size: .9rem; font-weight: 600; margin-bottom: .6rem; }
 .disclaimer { font-size: .82rem; color: var(--muted); max-width: 62ch; }
 
 /* Reveal animation (compositor-friendly: opacity + transform only) */

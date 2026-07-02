@@ -43,6 +43,13 @@
           <span class="proof-label">Example report</span>
           <span class="verdict">0 red flags observed</span>
         </div>
+        <svg class="seal" viewBox="0 0 64 64" aria-hidden="true">
+          <defs><path id="sealring" d="M32 7a25 25 0 1 1-.01 0"/></defs>
+          <circle cx="32" cy="32" r="30"/>
+          <circle class="dash" cx="32" cy="32" r="21"/>
+          <text><textPath href="#sealring">GOLEGIT · VERIFIED ON-SITE · GOLEGIT · VERIFIED</textPath></text>
+          <g class="seal-mark" transform="translate(21.5 21.5) scale(.875)"><path d="M18.3 7.08A8 8 0 1 0 19.73 14.07"/><path d="M9.8 12.6 12.2 15 18.3 7.08"/></g>
+        </svg>
         <div class="proof-body">
           <p class="proof-addr">2019 Honda Civic · Trade Me listing</p>
           <p class="proof-meta">📍 Seen in Papatoetoe, Auckland &nbsp;·&nbsp; 🕑 Today, 12:41pm &nbsp;·&nbsp; 🎥 Live-directed</p>
@@ -94,11 +101,11 @@
   <section class="money" aria-label="When money moves">
     <div class="wrap">
       <div class="money-rail">
-        <span class="money-chip">FREE to ask</span>
+        <span class="money-chip">🔓 FREE to ask</span>
         <span class="money-arrow" aria-hidden="true">→</span>
-        <span class="money-chip">HOLD when your checker's confirmed</span>
+        <span class="money-chip">🔒 HOLD when your checker's confirmed</span>
         <span class="money-arrow" aria-hidden="true">→</span>
-        <span class="money-chip money-chip-final">CHARGED only when proof is delivered</span>
+        <span class="money-chip money-chip-final">✓ CHARGED only when proof is delivered</span>
       </div>
       <p class="money-note">No report in 24 hours? The hold simply releases — the bank enforces that, not our goodwill.</p>
     </div>
@@ -175,6 +182,11 @@
         </div>
         <button class="btn btn-primary btn-full" type="submit">Request my check — free</button>
         <p class="form-note">No payment now. We confirm your checker first — then you choose to lock it in.</p>
+        <div class="trust-row" aria-label="Trust and safety">
+          <span class="trust-badge">🔒 Hold, not charge</span>
+          <span class="trust-badge">🏦 Bank-enforced release</span>
+          <span class="trust-badge">🎥 Live-verified on camera</span>
+        </div>
       </form>
 
       <div class="form-done" id="form-done" hidden>
@@ -221,6 +233,7 @@
     <p class="tag">Go Legit before you pay.</p>
   </div>
   <div class="wrap">
+    <p class="foot-secure">🔒 Your card hold is enforced by the card network — GoLegit can't take a cent without delivering your report.</p>
     <p class="disclaimer">GoLegit reports what our checker verifies and observes on-site at a point in time. We're your eyes on the ground — real evidence from a real person — not a legal guarantee. Always use your own judgement before sending money.</p>
   </div>
 </footer>
