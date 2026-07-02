@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoLegit — check a rental is real before you pay</title>
-  <meta name="description" content="Renting a place you've only seen in photos? A verified local checks it in person — and you don't pay a cent until the proof is in your inbox." />
+  <title>GoLegit — check a big purchase is real before you pay</title>
+  <meta name="description" content="Buying something you've only seen in photos? A verified local checks it in person — and you don't pay a cent until the proof is in your inbox." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cg%20fill='none'%20stroke='%230F7A45'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M18.3%207.08A8%208%200%201%200%2019.73%2014.07'/%3E%3Cpath%20d='M9.8%2012.6%2012.2%2015%2018.3%207.08'/%3E%3C/g%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,8 +29,8 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="eyebrow reveal">AI can fake the photos. It can't fake a person standing in the room.</p>
-        <h1 id="hero-heading" class="reveal">Don't wire a deposit to a <span class="ghost">ghost.</span></h1>
-        <p class="lead reveal">Renting a place you've only seen online? A real local checks it in person, on camera — and you don't pay a cent until the proof is in your inbox.</p>
+        <h1 id="hero-heading" class="reveal">Don't wire money to a <span class="ghost">ghost.</span></h1>
+        <p class="lead reveal">Buying something big you've only seen online — a car, a couch, a camera? A real local checks it in person, on camera — and you don't pay a cent until the proof is in your inbox.</p>
         <div class="hero-actions reveal">
           <a class="btn btn-primary" href="#check">Request a check — free</a>
           <a class="btn btn-ghost" href="#how">How it works</a>
@@ -44,13 +44,13 @@
           <span class="verdict">0 red flags observed</span>
         </div>
         <div class="proof-body">
-          <p class="proof-addr">14B Grafton Road, Auckland</p>
-          <p class="proof-meta">📍 Verified on-site &nbsp;·&nbsp; 🕑 Today, 12:41pm &nbsp;·&nbsp; 🎥 Live-directed</p>
+          <p class="proof-addr">2019 Honda Civic · Trade Me listing</p>
+          <p class="proof-meta">📍 Seen in Papatoetoe, Auckland &nbsp;·&nbsp; 🕑 Today, 12:41pm &nbsp;·&nbsp; 🎥 Live-directed</p>
           <ul class="checklist">
-            <li><span class="dot">✓</span> Unit exists &amp; matches the listing photos</li>
-            <li><span class="dot">✓</span> Ownership record matches the name we were given</li>
-            <li><span class="dot">✓</span> Person showing it had keys &amp; photo ID</li>
-            <li><span class="dot">✓</span> No pressure-to-pay-fast signals</li>
+            <li><span class="dot">✓</span> Car exists &amp; matches the listing photos</li>
+            <li><span class="dot">✓</span> Plate &amp; VIN match the listing</li>
+            <li><span class="dot">✓</span> Seller present, keys in hand</li>
+            <li><span class="dot">✓</span> Cold start on camera — no warning lights</li>
           </ul>
         </div>
         <div class="proof-foot">
@@ -63,8 +63,8 @@
 
   <section class="stakes" aria-label="Why it matters">
     <div class="wrap stakes-grid">
-      <p class="stat">$2,000+<span>what the average rental-scam victim loses</span></p>
-      <p class="stakes-copy">Fake listings, stolen photos, "landlords" who vanish the moment the bond lands — and renters under 30 are the <b>#1 target</b>. Sending money to a place you've never stood in is a bet. <b>GoLegit turns it into a sure thing.</b></p>
+      <p class="stat">$0<span>what usually comes back after you pay a ghost</span></p>
+      <p class="stakes-copy">Fake listings, stolen photos, sellers who vanish the moment the money lands. Marketplace scams run on one rule: <b>get you to pay before you've seen it.</b> GoLegit flips the order — someone sees it first, you pay after.</p>
     </div>
   </section>
 
@@ -119,7 +119,7 @@
         <article class="tcard reveal">
           <p class="ico" aria-hidden="true">🎥</p>
           <h3>Directed live, on camera</h3>
-          <p>Every visit is streamed and directed in real time — street sign, unit number, the person's ID. Timestamped, so it can't be recycled footage.</p>
+          <p>Every visit is streamed and directed in real time — the item, the serial or plate, the seller. Timestamped, so it can't be recycled footage.</p>
         </article>
         <article class="tcard reveal">
           <p class="ico" aria-hidden="true">🏦</p>
@@ -133,7 +133,7 @@
   <section class="section final" id="check" aria-labelledby="check-heading">
     <div class="wrap">
       <div class="final-head">
-        <h2 id="check-heading"><span class="price-tag">$<span data-price>59</span> NZD</span> to not lose $3,000.</h2>
+        <h2 id="check-heading"><span class="price-tag">$<span data-price>59</span> NZD</span> to not lose $2,000.</h2>
         <p class="lead">Send us the listing before you send a cent. Asking costs nothing.</p>
       </div>
 
@@ -148,7 +148,7 @@
         </div>
         <div class="field-row">
           <div class="field">
-            <label for="city">City the place is in</label>
+            <label for="city">City the item is in</label>
             <select id="city" name="city" required>
               <option value="" disabled selected>Choose a city</option>
               <option>Auckland</option>
@@ -163,15 +163,15 @@
             <label for="situation">Your situation</label>
             <select id="situation" name="situation" required>
               <option value="" disabled selected>Choose one</option>
-              <option>Moving from another city</option>
-              <option>Moving from overseas / international student</option>
+              <option>Buying from another city</option>
+              <option>Buying from overseas</option>
               <option>Other</option>
             </select>
           </div>
         </div>
         <div class="field">
           <label for="worry">What's worrying you about this place? <span class="optional">(optional)</span></label>
-          <textarea id="worry" name="worry" rows="3" placeholder="e.g. landlord says he's overseas and wants the bond before any viewing…"></textarea>
+          <textarea id="worry" name="worry" rows="3" placeholder="e.g. seller won't do a video call and wants a deposit to 'hold it'…"></textarea>
         </div>
         <button class="btn btn-primary btn-full" type="submit">Request my check — free</button>
         <p class="form-note">No payment now. We confirm your checker first — then you choose to lock it in.</p>
@@ -196,16 +196,16 @@
         <p>Never at request time. Once we confirm a checker for a real time slot, you place a card hold — authorised, not charged. The charge only happens when your report is delivered. No report within 24 hours: the hold releases automatically and you pay nothing.</p>
       </details>
       <details>
-        <summary>What if the landlord refuses the viewing?</summary>
-        <p>That <em>is</em> an answer — refusal plus pressure to pay fast is the single biggest scam signal there is. It goes in your report as a finding, with everything else we verified from records.</p>
+        <summary>What if the seller won't let anyone see it?</summary>
+        <p>That <em>is</em> an answer — refusal plus pressure to pay fast is the single biggest scam signal there is. It goes in your report as a finding, along with everything else we could verify.</p>
       </details>
       <details>
         <summary>What if it turns out to be a scam?</summary>
-        <p>Then the check just did its job — you keep your bond. Around half of the checks that find red flags never even need a visit: the background research catches it first.</p>
+        <p>Then the check just did its job — you keep your money. Around half of the checks that find red flags never even need a visit: the background research catches it first.</p>
       </details>
       <details>
         <summary>Is this a guarantee?</summary>
-        <p>No — and anyone selling you a guarantee is lying. We report what we verify and observe at a point in time, with timestamped evidence, and the decision stays yours. We'll also remind you of the safe way to pay: in NZ, bonds go through Tenancy Services — never "held" by bank transfer.</p>
+        <p>No — and anyone selling you a guarantee is lying. We report what we verify and observe at a point in time, with timestamped evidence, and the decision stays yours. We'll also flag the safest way to pay — in person at pickup wherever possible, and never a bank-transfer deposit to "hold" something for you.</p>
       </details>
       <details>
         <summary>Which cities do you cover?</summary>
