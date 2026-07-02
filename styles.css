@@ -67,12 +67,16 @@ header {
 header.scrolled { border-color: var(--line); }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: .85rem 0; }
 .brand { font-weight: 800; font-size: 1.35rem; display: inline-flex; align-items: center; gap: .45rem; }
-.tick {
-  display: inline-grid; place-items: center;
-  width: 1.45rem; height: 1.45rem; border-radius: 7px;
-  background: var(--green); color: #fff; font-size: .85rem;
+.mark {
+  width: 1.35em; height: 1.35em; flex: none;
   transform: rotate(-6deg);
+  transform-origin: 50% 88%;
+  transition: transform .35s var(--ease);
 }
+.mark-pin { fill: var(--green); }
+.mark-check { fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.brand:hover .mark { transform: rotate(5deg) translateY(-2px); }
+.brand-accent { color: var(--green); }
 .nav-links { display: flex; align-items: center; gap: 1.4rem; }
 .nav-link { font-weight: 500; color: var(--muted); transition: color .2s var(--ease); }
 .nav-link:hover { color: var(--ink); }
