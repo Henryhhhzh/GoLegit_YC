@@ -68,14 +68,13 @@ header.scrolled { border-color: var(--line); }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: .85rem 0; }
 .brand { font-weight: 800; font-size: 1.35rem; display: inline-flex; align-items: center; gap: .45rem; }
 .mark {
-  width: 1.35em; height: 1.35em; flex: none;
-  transform: rotate(-6deg);
-  transform-origin: 50% 88%;
+  width: 1.4em; height: 1.4em; flex: none;
   transition: transform .35s var(--ease);
 }
-.mark-pin { fill: var(--green); }
-.mark-check { fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.brand:hover .mark { transform: rotate(5deg) translateY(-2px); }
+.mark path { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.mark-arc { stroke: var(--ink); }
+.mark-check { stroke: var(--green); }
+.brand:hover .mark { transform: rotate(-8deg) scale(1.06); }
 .brand-accent { color: var(--green); }
 .nav-links { display: flex; align-items: center; gap: 1.4rem; }
 .nav-link { font-weight: 500; color: var(--muted); transition: color .2s var(--ease); }
