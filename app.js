@@ -21,11 +21,13 @@ const observer = new IntersectionObserver(
 );
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Form: coverage check + submit stub
+// Form: coverage check + submit
 const form = document.getElementById('check-form');
 const done = document.getElementById('form-done');
 const doneTitle = document.getElementById('done-title');
 const doneCopy = document.getElementById('done-copy');
+const formError = document.getElementById('form-error');
+const submitBtn = form.querySelector('[type="submit"]');
 
 form.addEventListener('submit', async e => {
   e.preventDefault();
@@ -36,12 +38,24 @@ form.addEventListener('submit', async e => {
   data.covered = COVERED_CITIES.includes(data.city);
   data.submittedAt = new Date().toISOString();
 
+  formError.hidden = true;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
   if (FORM_ENDPOINT) {
-    await fetch(FORM_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(`Submit failed: ${res.status}`);
+    } catch (err) {
+      formError.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request my check — free';
+      return;
+    }
   } else {
     // Local stub: inspect submissions via console or localStorage
     const stash = JSON.parse(localStorage.getItem('golegit-requests') || '[]');

@@ -234,6 +234,7 @@ h1 { font-size: var(--text-hero); font-weight: 800; margin-bottom: 1.2rem; }
   outline: none; border-color: var(--green);
 }
 .form-note { text-align: center; font-size: .88rem; color: var(--muted); margin-top: .9rem; }
+.form-error { text-align: center; font-size: .88rem; font-weight: 600; color: var(--coral); margin-top: .9rem; }
 .trust-row { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin-top: 1rem; }
 .trust-badge {
   font-size: .82rem; font-weight: 600; color: var(--green-ink);
