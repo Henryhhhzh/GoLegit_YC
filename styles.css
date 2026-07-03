@@ -139,7 +139,7 @@ h1 { font-size: var(--text-hero); font-weight: 800; margin-bottom: 1.4rem; }
   margin: -1px; padding: 0; border: 0;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
 }
-.gl { display: inline-block; transition: color .35s ease, opacity .6s ease, transform .7s var(--ease); }
+.gl { display: inline-block; transition: color .35s ease; }
 .js .gl { pointer-events: none; }
 .gl:nth-child(1) { --r: -7deg; --y: -.38em; --b: 0s; }
 .gl:nth-child(2) { --r: 5deg; --y: -.55em; --b: .25s; }
@@ -149,18 +149,6 @@ h1 { font-size: var(--text-hero); font-weight: 800; margin-bottom: 1.4rem; }
 html:not(.js) .ghost:hover .gl:not(.gl-dot), .gl.lift {
   color: transparent;
   -webkit-text-stroke: 2px var(--coral);
-}
-.gl.lift {
-  animation:
-    float-away calc(2.4s + var(--b, 0s)) cubic-bezier(.18, .7, .3, 1) forwards,
-    hover-bob 2.2s ease-in-out calc(2.4s + var(--b, 0s)) infinite alternate;
-}
-@keyframes float-away {
-  to { transform: translateY(var(--y, -.5em)) rotate(var(--r, -5deg)); opacity: .4; }
-}
-@keyframes hover-bob {
-  from { transform: translateY(var(--y, -.5em)) rotate(var(--r, -5deg)); }
-  to { transform: translateY(calc(var(--y, -.5em) - .06em)) rotate(var(--r, -5deg)); }
 }
 @supports not (-webkit-text-stroke: 1px black) {
   html:not(.js) .ghost:hover .gl:not(.gl-dot), .gl.lift { color: var(--coral); opacity: .3; }
@@ -496,7 +484,7 @@ footer { padding: 0 0 2.5rem; border-top: 1px solid var(--line); overflow: hidde
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
-  .ghost:hover .gl:not(.gl-dot), .gl.lift { transform: none; }
+  .ghost:hover .gl:not(.gl-dot), .gl.lift { transform: none; opacity: 1; }
   .reveal, .js .checklist li, .js .verdict, .js .seal, .js .rail-text { opacity: 1; transform: none; }
   .js .reveal-lines .h-line { transform: none; }
   .js .dot .i use { stroke-dashoffset: 0; }

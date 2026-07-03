@@ -51,15 +51,52 @@ if (ghost) {
   hit.setAttribute('aria-hidden', 'true');
   ghost.appendChild(hit);
 
+  const anims = new Map();
+  const stop = gl => {
+    (anims.get(gl) || []).forEach(a => a.cancel());
+    anims.delete(gl);
+  };
+
+  const lift = gl => {
+    if (gl.classList.contains('lift')) return;
+    gl.classList.add('lift');
+    if (reduceMotion) return;
+    stop(gl);
+    const cs = getComputedStyle(gl);
+    const pose = `translateY(${cs.getPropertyValue('--y') || '-.5em'}) rotate(${cs.getPropertyValue('--r') || '-5deg'})`;
+    const entry = [];
+    const up = gl.animate(
+      { transform: pose, opacity: .4 },
+      { duration: 2400, easing: 'cubic-bezier(.18, .7, .3, 1)', fill: 'forwards' }
+    );
+    up.onfinish = () => entry.push(gl.animate(
+      [{ transform: pose }, { transform: `${pose} translateY(-.06em)` }],
+      { duration: 2200 + parseFloat(cs.getPropertyValue('--b') || 0) * 1000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' }
+    ));
+    entry.push(up);
+    anims.set(gl, entry);
+  };
+
+  const settle = gl => {
+    gl.classList.remove('lift');
+    if (!anims.has(gl)) return;
+    const cs = getComputedStyle(gl);
+    const pose = { transform: cs.transform, opacity: cs.opacity };
+    stop(gl);
+    if (pose.transform === 'none') return;
+    anims.set(gl, [gl.animate(
+      [pose, { transform: 'none', opacity: 1 }],
+      { duration: 900, easing: 'cubic-bezier(.16, 1, .3, 1)' }
+    )]);
+  };
+
   hit.addEventListener('pointermove', e => {
     const x = e.clientX - ghost.getBoundingClientRect().left;
     letters.forEach(gl => {
-      if (x >= gl.offsetLeft && x <= gl.offsetLeft + gl.offsetWidth) gl.classList.add('lift');
+      if (x >= gl.offsetLeft && x <= gl.offsetLeft + gl.offsetWidth) lift(gl);
     });
   });
-  ghost.addEventListener('pointerleave', () => {
-    letters.forEach(gl => gl.classList.remove('lift'));
-  });
+  ghost.addEventListener('pointerleave', () => letters.forEach(settle));
 
   // Masks are only needed for the intro line reveal — unclip so letters can float
   const heroHeading = document.querySelector('.reveal-lines');
