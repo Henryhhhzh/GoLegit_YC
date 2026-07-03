@@ -1,14 +1,18 @@
+document.documentElement.classList.add('js');
+
 // --- Config: adjust before launch ---
 const COVERED_CITIES = ['Auckland']; // TODO: set to your real launch city
 const FORM_ENDPOINT = null;          // TODO: Tally/Formspree/API URL — null = local stub
 const DEFAULT_PRICE = 59;            // price ladder via ?p=39|59|79
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Price ladder from URL param
 const priceParam = Number(new URLSearchParams(location.search).get('p'));
 const price = [39, 59, 79].includes(priceParam) ? priceParam : DEFAULT_PRICE;
 document.querySelectorAll('[data-price]').forEach(el => (el.textContent = price));
 
-// Header shadow on scroll
+// Header shadow + condense on scroll
 const header = document.querySelector('header');
 const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
 window.addEventListener('scroll', onScroll, { passive: true });
@@ -20,6 +24,43 @@ const observer = new IntersectionObserver(
   { threshold: 0.15 }
 );
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// One-shot play sequences (money rail)
+const playObserver = new IntersectionObserver(
+  entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('play');
+    playObserver.unobserve(e.target);
+  }),
+  { threshold: 0.5 }
+);
+document.querySelectorAll('[data-play]').forEach(el => playObserver.observe(el));
+
+// Hero report assembles once the page is in
+const proof = document.querySelector('.proof');
+if (proof) {
+  window.addEventListener('load', () => setTimeout(() => proof.classList.add('play'), 250));
+}
+
+// Stakes counter: $2,000 rolls down to $0
+const statNum = document.querySelector('[data-countdown]');
+if (statNum && !reduceMotion) {
+  const from = Number(statNum.dataset.countdown);
+  const DURATION = 1400;
+  const statObserver = new IntersectionObserver(entries => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    statObserver.disconnect();
+    const t0 = performance.now();
+    const tick = now => {
+      const p = Math.min((now - t0) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      statNum.textContent = '$' + Math.round(from * (1 - eased)).toLocaleString('en-NZ');
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, { threshold: 0.6 });
+  statObserver.observe(statNum);
+}
 
 // Form: coverage check + submit
 const form = document.getElementById('check-form');

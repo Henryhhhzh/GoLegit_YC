@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GoLegit — check a big purchase is real before you pay</title>
   <meta name="description" content="Buying something you've only seen in photos? A verified local checks it in person — and you don't pay a cent until the proof is in your inbox." />
+  <meta property="og:title" content="GoLegit — someone sees it first, you pay after" />
+  <meta property="og:description" content="A verified local checks your marketplace buy in person, live on camera — you don't pay a cent until the proof is in your inbox." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/screenshot-hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cg%20fill='none'%20stroke='%230F7A45'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M18.3%207.08A8%208%200%201%200%2019.73%2014.07'/%3E%3Cpath%20d='M9.8%2012.6%2012.2%2015%2018.3%207.08'/%3E%3C/g%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +17,19 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+<svg class="defs" aria-hidden="true">
+  <defs>
+    <symbol id="i-lock" viewBox="0 0 24 24"><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/><rect x="4.5" y="11" width="15" height="9.5" rx="2.2"/></symbol>
+    <symbol id="i-unlock" viewBox="0 0 24 24"><path d="M7 11V7a5 5 0 0 1 9.7-1.7"/><rect x="4.5" y="11" width="15" height="9.5" rx="2.2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.8l4.6 4.6L19 7.2"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="2.5" y="7" width="13" height="10" rx="2.2"/><path d="M15.5 13.4v-2.8l6-3.4v9.6l-6-3.4z"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M4 21h16M12 3.5 20.5 9h-17L12 3.5zM6 9v9M10 9v9M14 9v9M18 9v9"/></symbol>
+    <symbol id="i-id" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.2"/><circle cx="8.2" cy="10.4" r="1.9"/><path d="M5.4 15.6c.7-1.7 4.9-1.7 5.6 0M13.5 9.5h5M13.5 13h4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21c-4-3.8-6-7-6-9.8a6 6 0 1 1 12 0c0 2.8-2 6-6 9.8z"/><circle cx="12" cy="11" r="2.1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.6V12l2.9 1.9"/></symbol>
+  </defs>
+</svg>
 
 <header id="top">
   <nav class="wrap nav" aria-label="Main navigation">
@@ -29,16 +47,20 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="eyebrow reveal">AI can fake the photos. It can't fake a person standing in the room.</p>
-        <h1 id="hero-heading" class="reveal">Don't wire money to a <span class="ghost">ghost.</span></h1>
-        <p class="lead reveal">Buying something big you've only seen online — a car, a couch, a camera? A real local checks it in person, on camera — and you don't pay a cent until the proof is in your inbox.</p>
-        <div class="hero-actions reveal">
+        <h1 id="hero-heading" class="reveal reveal-lines">
+          <span class="h-mask"><span class="h-line">Don't wire</span></span>
+          <span class="h-mask"><span class="h-line h-line-2">money to</span></span>
+          <span class="h-mask"><span class="h-line h-line-3">a <span class="ghost">ghost.</span></span></span>
+        </h1>
+        <p class="lead reveal" style="--d:.15s">Buying something big you've only seen online — a car, a couch, a camera? A real local checks it in person, on camera — and you don't pay a cent until the proof is in your inbox.</p>
+        <div class="hero-actions reveal" style="--d:.25s">
           <a class="btn btn-primary" href="#check">Request a check — free</a>
           <a class="btn btn-ghost" href="#how">How it works</a>
         </div>
-        <p class="microtrust reveal">🔒 No card needed to ask · charged only when your report is delivered</p>
+        <p class="microtrust reveal" style="--d:.33s"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg> No card needed to ask · charged only when your report is delivered</p>
       </div>
 
-      <aside class="proof reveal" aria-label="Example verification report">
+      <aside class="proof reveal" style="--d:.2s" aria-label="Example verification report">
         <div class="proof-top">
           <span class="proof-label">Example report</span>
           <span class="verdict">0 red flags observed</span>
@@ -52,12 +74,16 @@
         </svg>
         <div class="proof-body">
           <p class="proof-addr">2019 Honda Civic · Trade Me listing</p>
-          <p class="proof-meta">📍 Seen in Papatoetoe, Auckland &nbsp;·&nbsp; 🕑 Today, 12:41pm &nbsp;·&nbsp; 🎥 Live-directed</p>
+          <p class="proof-meta">
+            <span class="meta-bit"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Seen in Papatoetoe, Auckland</span>
+            <span class="meta-bit"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Today, 12:41pm</span>
+            <span class="meta-bit"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg>Live-directed</span>
+          </p>
           <ul class="checklist">
-            <li><span class="dot">✓</span> Car exists &amp; matches the listing photos</li>
-            <li><span class="dot">✓</span> Plate &amp; VIN match the listing</li>
-            <li><span class="dot">✓</span> Seller present, keys in hand</li>
-            <li><span class="dot">✓</span> Cold start on camera — no warning lights</li>
+            <li><span class="dot"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span> Car exists &amp; matches the listing photos</li>
+            <li><span class="dot"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span> Plate &amp; VIN match the listing</li>
+            <li><span class="dot"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span> Seller present, keys in hand</li>
+            <li><span class="dot"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span> Cold start on camera — no warning lights</li>
           </ul>
         </div>
         <div class="proof-foot">
@@ -70,8 +96,8 @@
 
   <section class="stakes" aria-label="Why it matters">
     <div class="wrap stakes-grid">
-      <p class="stat">$0<span>what usually comes back after you pay a ghost</span></p>
-      <p class="stakes-copy">Fake listings, stolen photos, sellers who vanish the moment the money lands. Marketplace scams run on one rule: <b>get you to pay before you've seen it.</b> GoLegit flips the order — someone sees it first, you pay after.</p>
+      <p class="stat"><span class="stat-num" data-countdown="2000">$0</span><span class="stat-label">what usually comes back after you pay a ghost</span></p>
+      <p class="stakes-copy reveal">Fake listings, stolen photos, sellers who vanish the moment the money lands. Marketplace scams run on one rule: <b>get you to pay before you've seen it.</b> GoLegit flips the order — someone sees it first, you pay after.</p>
     </div>
   </section>
 
@@ -86,11 +112,11 @@
           <h3>Ask — free</h3>
           <p>Paste the listing and tell us what's worrying you. No card, no cost, two minutes.</p>
         </li>
-        <li class="step reveal">
+        <li class="step reveal" style="--d:.12s">
           <h3>We line someone up — then you lock it in</h3>
           <p>Once a verified local is confirmed for a real time, you place a hold — like a hotel booking. Authorised, <b>not charged</b>.</p>
         </li>
-        <li class="step reveal">
+        <li class="step reveal" style="--d:.24s">
           <h3>Watch it get proven</h3>
           <p>We run the background checks, then direct the visit live on camera. Your report lands within 24h — and only then does the hold become payment.</p>
         </li>
@@ -100,14 +126,21 @@
 
   <section class="money" aria-label="When money moves">
     <div class="wrap">
-      <div class="money-rail">
-        <span class="money-chip">🔓 FREE to ask</span>
-        <span class="money-arrow" aria-hidden="true">→</span>
-        <span class="money-chip">🔒 HOLD when your checker's confirmed</span>
-        <span class="money-arrow" aria-hidden="true">→</span>
-        <span class="money-chip money-chip-final">✓ CHARGED only when proof is delivered</span>
-      </div>
-      <p class="money-note">No report in 24 hours? The hold simply releases — the bank enforces that, not our goodwill.</p>
+      <ol class="rail" data-play>
+        <li class="rail-step">
+          <span class="rail-node"><svg class="i" aria-hidden="true"><use href="#i-unlock"/></svg></span>
+          <span class="rail-text">FREE to ask</span>
+        </li>
+        <li class="rail-step">
+          <span class="rail-node"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg></span>
+          <span class="rail-text">HOLD when your checker's confirmed</span>
+        </li>
+        <li class="rail-step rail-final">
+          <span class="rail-node"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span class="rail-text">CHARGED only when proof is delivered</span>
+        </li>
+      </ol>
+      <p class="money-note reveal">No report in 24 hours? The hold simply releases — <b>the bank enforces that, not our goodwill.</b></p>
     </div>
   </section>
 
@@ -118,18 +151,22 @@
         <h2 id="trust-heading">Built for buying from far away.</h2>
       </div>
       <div class="trust-grid">
-        <article class="tcard reveal">
-          <p class="ico" aria-hidden="true">🪪</p>
+        <article class="tcard tcard-live reveal">
+          <p class="tico" aria-hidden="true"><svg class="i"><use href="#i-video"/></svg></p>
+          <h3>Directed live, on camera</h3>
+          <p>Every visit is streamed and directed in real time — the item, the serial or plate, the seller. Timestamped, so it can't be recycled footage.</p>
+          <div class="live-frame" aria-hidden="true">
+            <span class="live-pill"><span class="live-dot"></span>LIVE</span>
+            <span class="live-time">REC · 12:41:07</span>
+          </div>
+        </article>
+        <article class="tcard reveal" style="--d:.12s">
+          <p class="tico" aria-hidden="true"><svg class="i"><use href="#i-id"/></svg></p>
           <h3>Adults with receipts</h3>
           <p>Checkers come from gig platforms with long review histories and verified ID — never anonymous volunteers.</p>
         </article>
-        <article class="tcard reveal">
-          <p class="ico" aria-hidden="true">🎥</p>
-          <h3>Directed live, on camera</h3>
-          <p>Every visit is streamed and directed in real time — the item, the serial or plate, the seller. Timestamped, so it can't be recycled footage.</p>
-        </article>
-        <article class="tcard reveal">
-          <p class="ico" aria-hidden="true">🏦</p>
+        <article class="tcard reveal" style="--d:.24s">
+          <p class="tico" aria-hidden="true"><svg class="i"><use href="#i-bank"/></svg></p>
           <h3>Refunds you don't have to trust us for</h3>
           <p>You're only ever charged when your report is delivered. An unfulfilled hold auto-releases — that's how card holds work.</p>
         </article>
@@ -140,7 +177,7 @@
   <section class="section final" id="check" aria-labelledby="check-heading">
     <div class="wrap">
       <div class="final-head">
-        <h2 id="check-heading"><span class="price-tag">$<span data-price>59</span> NZD</span> to not lose $2,000.</h2>
+        <h2 id="check-heading"><span class="price-tag">$<span data-price>59</span> NZD</span> to not lose <span class="loss">$2,000.</span></h2>
         <p class="lead">Send us the listing before you send a cent. Asking costs nothing.</p>
       </div>
 
@@ -184,9 +221,9 @@
         <p class="form-error" id="form-error" role="alert" hidden>Couldn't send your request — check your connection and try again.</p>
         <p class="form-note">No payment now. We confirm your checker first — then you choose to lock it in.</p>
         <div class="trust-row" aria-label="Trust and safety">
-          <span class="trust-badge">🔒 Hold, not charge</span>
-          <span class="trust-badge">🏦 Bank-enforced release</span>
-          <span class="trust-badge">🎥 Live-verified on camera</span>
+          <span class="trust-badge"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Hold, not charge</span>
+          <span class="trust-badge"><svg class="i" aria-hidden="true"><use href="#i-bank"/></svg>Bank-enforced release</span>
+          <span class="trust-badge"><svg class="i" aria-hidden="true"><use href="#i-video"/></svg>Live-verified on camera</span>
         </div>
       </form>
 
@@ -229,12 +266,13 @@
 </main>
 
 <footer>
+  <p class="watermark" aria-hidden="true">GoLegit</p>
   <div class="wrap foot">
     <a class="brand" href="#top"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path class="mark-arc" d="M18.3 7.08A8 8 0 1 0 19.73 14.07"/><path class="mark-check" d="M9.8 12.6 12.2 15 18.3 7.08"/></svg><span class="brand-word">Go<span class="brand-accent">Legit</span></span></a>
     <p class="tag">Go Legit before you pay.</p>
   </div>
   <div class="wrap">
-    <p class="foot-secure">🔒 Your card hold is enforced by the card network — GoLegit can't take a cent without delivering your report.</p>
+    <p class="foot-secure"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg>Your card hold is enforced by the card network — GoLegit can't take a cent without delivering your report.</p>
     <p class="disclaimer">GoLegit reports what our checker verifies and observes on-site at a point in time. We're your eyes on the ground — real evidence from a real person — not a legal guarantee. Always use your own judgement before sending money.</p>
   </div>
 </footer>
