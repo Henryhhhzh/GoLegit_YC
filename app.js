@@ -42,6 +42,17 @@ if (proof) {
   window.addEventListener('load', () => setTimeout(() => proof.classList.add('play'), 250));
 }
 
+// Ghost letters lift one by one under the cursor, settle when it leaves
+const ghost = document.querySelector('.ghost');
+if (ghost) {
+  ghost.querySelectorAll('.gl:not(.gl-dot)').forEach(gl => {
+    gl.addEventListener('pointerenter', () => gl.classList.add('lift'));
+  });
+  ghost.addEventListener('pointerleave', () => {
+    ghost.querySelectorAll('.lift').forEach(gl => gl.classList.remove('lift'));
+  });
+}
+
 // Stakes counter: $2,000 rolls down to $0
 const statNum = document.querySelector('[data-countdown]');
 if (statNum && !reduceMotion) {
