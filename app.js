@@ -42,15 +42,30 @@ if (proof) {
   window.addEventListener('load', () => setTimeout(() => proof.classList.add('play'), 250));
 }
 
-// Ghost letters lift one by one under the cursor, settle when it leaves
+// Ghost letters float away as the cursor touches them; the hitbox stays put
 const ghost = document.querySelector('.ghost');
 if (ghost) {
-  ghost.querySelectorAll('.gl:not(.gl-dot)').forEach(gl => {
-    gl.addEventListener('pointerenter', () => gl.classList.add('lift'));
+  const letters = [...ghost.querySelectorAll('.gl:not(.gl-dot)')];
+  const hit = document.createElement('span');
+  hit.className = 'ghost-hit';
+  hit.setAttribute('aria-hidden', 'true');
+  ghost.appendChild(hit);
+
+  hit.addEventListener('pointermove', e => {
+    const x = e.clientX - ghost.getBoundingClientRect().left;
+    letters.forEach(gl => {
+      if (x >= gl.offsetLeft && x <= gl.offsetLeft + gl.offsetWidth) gl.classList.add('lift');
+    });
   });
   ghost.addEventListener('pointerleave', () => {
-    ghost.querySelectorAll('.lift').forEach(gl => gl.classList.remove('lift'));
+    letters.forEach(gl => gl.classList.remove('lift'));
   });
+
+  // Masks are only needed for the intro line reveal — unclip so letters can float
+  const heroHeading = document.querySelector('.reveal-lines');
+  window.addEventListener('load', () =>
+    setTimeout(() => heroHeading.classList.add('unmasked'), 1300)
+  );
 }
 
 // Stakes counter: $2,000 rolls down to $0
